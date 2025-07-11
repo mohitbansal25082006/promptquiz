@@ -1,0 +1,9 @@
+README.md
+setup.py
+promptquiz.egg-info/PKG-INFO
+promptquiz.egg-info/SOURCES.txt
+promptquiz.egg-info/dependency_links.txt
+promptquiz.egg-info/requires.txt
+promptquiz.egg-info/top_level.txt
+src/__init__.py
+src/mcqgenerator/__init__.py
