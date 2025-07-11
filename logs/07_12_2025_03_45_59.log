@@ -1,0 +1,10 @@
+[2025-07-12 03:46:15] [INFO] root (93): File read successfully.
+[2025-07-12 03:46:18] [INFO] httpx (1025): HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-12 03:46:19] [INFO] httpx (1025): HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-12 03:46:19] [ERROR] root (154): Traceback (most recent call last):
+  File "E:\promptquiz\streamlitAPP.py", line 141, in <module>
+    excel_data = convert_df_to_excel(df)
+  File "E:\promptquiz\streamlitAPP.py", line 134, in convert_df_to_excel
+    output = BytesIO()
+NameError: name 'BytesIO' is not defined. Did you mean: 'bytes'?
+

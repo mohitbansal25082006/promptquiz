@@ -1,0 +1,12 @@
+[2025-07-12 03:48:34] [INFO] root (95): File read successfully.
+[2025-07-12 03:48:37] [INFO] httpx (1025): HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-12 03:48:38] [INFO] httpx (1025): HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-12 03:48:38] [ERROR] root (156): Traceback (most recent call last):
+  File "E:\promptquiz\streamlitAPP.py", line 143, in <module>
+    excel_data = convert_df_to_excel(df)
+  File "E:\promptquiz\streamlitAPP.py", line 137, in convert_df_to_excel
+    writer = pd.ExcelWriter(output, engine='xlsxwriter')
+  File "E:\promptquiz\env\lib\site-packages\pandas\io\excel\_xlsxwriter.py", line 197, in __init__
+    from xlsxwriter import Workbook
+ModuleNotFoundError: No module named 'xlsxwriter'
+

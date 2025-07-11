@@ -1,0 +1,35 @@
+{
+    "1": {
+        "no": "1",
+        "mcq": "Write your first multiple choice question here.",
+        "options": {
+            "a": "First option text.",
+            "b": "Second option text.",
+            "c": "Third option text.",
+            "d": "Fourth option text."
+        },
+        "correct": "correct answer"
+    },
+    "2": {
+        "no": "2",
+        "mcq": "Write your second multiple choice question here.",
+        "options": {
+            "a": "First option text.",
+            "b": "Second option text.",
+            "c": "Third option text.",
+            "d": "Fourth option text."
+        },
+        "correct": "correct answer"
+    },
+    "3": {
+        "no": "3",
+        "mcq": "Write your third multiple choice question here.",
+        "options": {
+            "a": "First option text.",
+            "b": "Second option text.",
+            "c": "Third option text.",
+            "d": "Fourth option text."
+        },
+        "correct": "correct answer"
+    }
+}
