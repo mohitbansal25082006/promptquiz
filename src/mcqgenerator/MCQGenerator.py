@@ -55,10 +55,7 @@ Given the following multiple-choice quiz intended for {subject} students:
 **Response Format:**
 Return your answer as a JSON object with the following fields:
 
-{
-  "complexity_analysis": "Your 50-word analysis here.",
-  "updated_quiz": "The updated quiz here if any questions were changed, otherwise write 'No changes needed.'"
-}
+{{"complexity_analysis": "Your 50-word analysis here.","updated_quiz": "The updated quiz here if any questions were changed, otherwise write 'No changes needed.'"}}
 """
 
 
