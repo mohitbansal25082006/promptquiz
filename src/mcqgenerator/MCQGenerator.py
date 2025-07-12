@@ -1,7 +1,5 @@
-import os
 import json
 import traceback
-from dotenv import load_dotenv
 
 # Optional: Logging if you want to track errors
 from src.mcqgenerator.logger import logging
@@ -11,9 +9,11 @@ from langchain.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_openai import ChatOpenAI
 
-# Load environment variables from .env
-load_dotenv()
-key = os.getenv("OPENAI_API_KEY")
+# IMPORTANT: Use Streamlit secrets for API key
+import streamlit as st
+
+# Read the OpenAI API key securely
+key = st.secrets["OPENAI_API_KEY"]
 
 # Initialize the OpenAI Chat Model
 llm = ChatOpenAI(
@@ -57,10 +57,10 @@ Given the following multiple-choice quiz intended for {subject} students:
 **Response Format:**
 Return your answer as a JSON object with the following fields:
 
-{{
+{
   "complexity_analysis": "Your 50-word analysis here.",
   "updated_quiz": "The updated quiz here if any questions were changed, otherwise write 'No changes needed.'"
-}}
+}
 """
 
 quiz_evaluation_prompt = PromptTemplate(
