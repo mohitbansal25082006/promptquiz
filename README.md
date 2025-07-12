@@ -4,6 +4,12 @@ This is a fully functional web-based application built using Streamlit and LangC
 
 
 
+##  Live Demo
+
+👉 **Try it here:**  
+[🧪 Try the Smart MCQ Generator Live](https://promptquiz-bgcuzrmvstfn2hixdv96dg.streamlit.app/)
+
+
 ##  Project Overview
 
 This application leverages powerful AI models through LangChain to generate exam-ready MCQs. It is ideal for educators, trainers, or content creators who want to convert raw notes or reading material into structured quizzes instantly.
