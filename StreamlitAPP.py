@@ -96,17 +96,13 @@ if submitted:
 
     with st.spinner("⏳ Generating your MCQs using AI..."):
         try:
-            # Get OpenAI API key from Streamlit Secrets
-            api_key = st.secrets["OPENAI_API_KEY"]
-
             with get_openai_callback() as cb:
                 result = generate_and_evaluate(
                     text=text,
                     number=mcq_count,
                     subject=subject,
                     tone=tone,
-                    response_json=json.dumps(RESPONSE_JSON),
-                    api_key=api_key   # make sure your function accepts api_key
+                    response_json=json.dumps(RESPONSE_JSON)
                 )
 
             quiz = result["quiz"]
@@ -129,7 +125,7 @@ if submitted:
             table_data = get_table_data(quiz)
             if table_data:
                 df = pd.DataFrame(table_data)
-                df = df.head(mcq_count)  # Show only requested count
+                df = df.head(mcq_count)
                 st.dataframe(df, use_container_width=True, height=400)
             else:
                 st.warning("⚠️ Could not parse quiz into table format.")
