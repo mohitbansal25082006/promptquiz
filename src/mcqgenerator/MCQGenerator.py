@@ -1,5 +1,6 @@
 import json
 import traceback
+import streamlit as st
 
 # Optional: Logging if you want to track errors
 from src.mcqgenerator.logger import logging
@@ -8,9 +9,6 @@ from src.mcqgenerator.logger import logging
 from langchain.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_openai import ChatOpenAI
-
-# IMPORTANT: Use Streamlit secrets for API key
-import streamlit as st
 
 # Read the OpenAI API key securely
 key = st.secrets["OPENAI_API_KEY"]
@@ -94,5 +92,8 @@ def generate_and_evaluate(text, number, subject, tone, response_json):
         }
 
     except Exception as e:
+        # Return the error so Streamlit can display it
         logging.error(f"Error during generation and evaluation: {traceback.format_exc()}")
-        return None
+        return {
+            "error": f"{type(e).__name__}: {str(e)}"
+        }

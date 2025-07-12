@@ -96,14 +96,21 @@ if submitted:
 
     with st.spinner("⏳ Generating your MCQs using AI..."):
         try:
-            with get_openai_callback() as cb:
-                result = generate_and_evaluate(
-                    text=text,
-                    number=mcq_count,
-                    subject=subject,
-                    tone=tone,
-                    response_json=json.dumps(RESPONSE_JSON)
-                )
+            result = generate_and_evaluate(
+                text=text,
+                number=mcq_count,
+                subject=subject,
+                tone=tone,
+                response_json=json.dumps(RESPONSE_JSON)
+            )
+
+            if result is None:
+                st.error("❌ Unknown error: The result is None.")
+                st.stop()
+
+            if "error" in result:
+                st.error(f"❌ Error during MCQ generation: {result['error']}")
+                st.stop()
 
             quiz = result["quiz"]
             review = result["review"]
