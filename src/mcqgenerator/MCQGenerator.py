@@ -61,6 +61,7 @@ Return your answer as a JSON object with the following fields:
 }
 """
 
+
 quiz_evaluation_prompt = PromptTemplate(
     input_variables=["subject", "quiz"],
     template=template2
