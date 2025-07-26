@@ -23,25 +23,18 @@ llm = ChatOpenAI(
 # Prompt template for quiz generation
 template = """
 Text: {text}
-
 You are an expert MCQ maker. Given the above text, it is your job to 
-create a quiz of {number} multiple choice questions for {subject} students in a {tone} tone with {level} difficulty.
-
-Make sure the questions:
-- Are not repeated
-- Are based strictly on the text
-- Match the {level} level of difficulty
-- Conform to the given subject and tone
-
-Use the format provided in RESPONSE_JSON exactly.
-Ensure to make exactly {number} MCQs.
+create a quiz of {number} multiple choice questions for {subject} students in {tone} tone.
+Make sure the questions are not repeated and check all the questions to be conforming to the text as well.
+Make sure to format your response like RESPONSE_JSON below and use it as a guide.
+Ensure to make {number} MCQs.
 
 ### RESPONSE_JSON
 {response_json}
 """
 
 quiz_generation_prompt = PromptTemplate(
-    input_variables=["text", "number", "subject", "tone", "level", "response_json"],
+    input_variables=["text", "number", "subject", "tone", "response_json"],
     template=template
 )
 
@@ -65,6 +58,7 @@ Return your answer as a JSON object with the following fields:
 {{"complexity_analysis": "Your 50-word analysis here.","updated_quiz": "The updated quiz here if any questions were changed, otherwise write 'No changes needed.'"}}
 """
 
+
 quiz_evaluation_prompt = PromptTemplate(
     input_variables=["subject", "quiz"],
     template=template2
@@ -75,14 +69,13 @@ quiz_chain = quiz_generation_prompt | llm | StrOutputParser()
 review_chain = quiz_evaluation_prompt | llm | StrOutputParser()
 
 # A function to generate and evaluate the quiz
-def generate_and_evaluate(text, number, subject, tone, level, response_json):
+def generate_and_evaluate(text, number, subject, tone, response_json):
     try:
         quiz_result = quiz_chain.invoke({
             "text": text,
             "number": str(number),
             "subject": subject,
             "tone": tone,
-            "level": level,
             "response_json": response_json
         })
 
