@@ -74,6 +74,7 @@ with st.sidebar:
     tone = st.selectbox("🎯 Tone", ["Formal", "Conversational", "Informal"], index=0)
     subject = st.text_input("📘 Subject", value="General Knowledge")
     mcq_count = st.slider("🔢 Number of MCQs", min_value=3, max_value=50, value=5)
+    level = st.selectbox("📈 Difficulty Level", ["Easy", "Medium", "Hard"], index=1)
 
 # -------------------------- MAIN INPUT FORM --------------------------
 with st.form("upload_form"):
@@ -101,6 +102,7 @@ if submitted:
                 number=mcq_count,
                 subject=subject,
                 tone=tone,
+                level=level,
                 response_json=json.dumps(RESPONSE_JSON)
             )
 
