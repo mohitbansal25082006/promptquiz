@@ -5,7 +5,7 @@ This is a fully functional web-based application built using Streamlit and LangC
 
 ## 🖼️ Preview
 
-![App Screenshot](preview.png)
+![App Screenshot](preview2.png)
 
 
 ##  Live Demo
