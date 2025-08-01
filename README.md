@@ -3,6 +3,10 @@
 This is a fully functional web-based application built using Streamlit and LangChain that allows users to upload educational content (PDF or TXT), and generate high-quality multiple-choice questions (MCQs) using OpenAI's LLM APIs. The app supports dynamic tone, subject configuration, and a clean table view for quiz output.
 
 
+## 🖼️ Preview
+
+![App Screenshot](preview.png)
+
 
 ##  Live Demo
 
